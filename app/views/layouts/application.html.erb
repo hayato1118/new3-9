@@ -1,0 +1,82 @@
+<!--共通のコード-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bookers</title>
+ <meta charset="utf-8">
+<%= csrf_meta_tags %>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+</head>
+<!-- <body class='<%#= "#{controller.controller_name}" %>'> -->
+  <!-- <body data-controller="<%= controller_name %>" data-action="<%= action_name %>"> -->
+<body>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <nav class="nav navbar-nav navbar-left"> <span class="glyphicon glyphicon-book">Bookers</span> </nav>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <!--ログイン中のヘッダー-->
+            <li>
+            <%= link_to user_path(current_user.id), :method => :GET do %>
+              <i class="glyphicon glyphicon-home"></i> Home
+                <% end %>
+                   <!--<a class="glyphicon glyphicon-home" href="/users"> Home</a>--></li>
+            <li>
+              <%= link_to users_path, :method => :GET do %> <i class="glyphicon glyphicon-user"></i> Users
+                <% end %>
+                  <!--<a class="glyphicon glyphicon-user" href="/users"> Users</a>--></li>
+            <li>
+              <%= link_to books_path, :method => :GET do %> <i class="glyphicon glyphicon-book"></i> Books
+                <% end %>
+                  <!--<a class="glyphicon glyphicon-book" href="/books"> Books</a>--></li>
+            <li>
+              <%= link_to destroy_user_session_path, :method => :delete do %> <i class="glyphicon glyphicon-log-out"></i> logout
+                <% end %>
+            </li>
+            <% else %>
+            
+
+              <!--ログアウト中のヘッダー-->
+              <li>
+                <%= link_to root_path, :method => :GET do %> <i class="glyphicon glyphicon-home"></i> Home
+                  <% end %>
+                  </li>
+              <li>
+                <%= link_to home_about_path, :method => :GET do %> <i class="glyphicon glyphicon-link"></i> About
+                  <% end %>
+                   </li>
+              <li>
+                <%= link_to new_user_registration_path, :method => :GET do %> <i class="glyphicon glyphicon-edit"></i> sign up
+                  <% end %>
+                  </li>
+              <li>
+                <%= link_to new_user_session_path, :method => :GET do %> <i class="glyphicon glyphicon-log-in"></i> login
+                  <% end %>
+              </li>
+              <% end %>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <%= yield %>
+
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3 col-xs-offset-9 footer">
+            <p>CopyRight HAYATO</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+<!-- </body> -->
+<!-- </body> -->
+</body>
+</html>

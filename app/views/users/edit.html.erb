@@ -1,0 +1,46 @@
+<!--Usersの編集ページ-->
+<!--<p>Users#edit</p>
+<p>Find me in app/views/users/edit.html.erb</p>
+<p>全共通コード(heade)(footer)app/views/layouts/application.html.erb</p>
+<p>部分共通コード(left_side)/app/views/books/_list.html.erb</p>-->
+
+<div class="body">
+<div class="container">
+<p id="notice"></p>
+<div class="row">
+<%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<h2>User info</h2>
+<div class="field" style="display:inline-flex">
+<label>Name</label>
+<%= f.text_field :name %>
+</div>
+
+<div class="field">
+<p><label>Image</label></p>
+<%= f.attachment_field :profile_image %>
+</div>
+
+<div class="field" style="display:inline-flex">
+<label>introduction</label>
+<%= f.text_area :introduction %>
+</div>
+
+<p><%= f.submit 'Update User' %></p>
+
+<% end %>
+</div>
+</div>
+</div>
+
+
+
+

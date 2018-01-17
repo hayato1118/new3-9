@@ -1,0 +1,207 @@
+<!--ログイン前のトップページ-->
+<!--<h1>post_images#index</h1>
+<p>Find me in app/views/post_images/index.html.erb</p>-->
+<head>
+</head>
+
+<!--左側のレイアウト-->
+  <div class="container">
+    <p id="notice"></p>
+    <div class="row">
+        <div class="col-lg-5">
+        <div class="top-message  col-md-12">
+          <h1>welcome to <span class="glyphicon glyphicon-book"><strong>Bookers</strong>  !!</span></h1>
+          <p>In <span class="glyphicon glyphicon-book"></span><strong>Bookers</strong>, </p>
+          <p>you can share and exchange your opinions , inpressions , and emotions</p>
+          <p> about varioius books!</p>
+          <div class="btn-wrapper">
+            <div class="row">
+                <%= link_to "Log in", "/users/sign_in", {:class => "btn btn-info col-xs-10 col-xs-offset-1"} %>
+            </div>
+            <div class="row">
+                <%= link_to "Sign Up", "/users/sign_up", {:class => "btn btn-success col-xs-10 col-xs-offset-1"} %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<div class="col-lg-7">
+<h1 class="text-left ">最近投稿された本</h1>
+<div id="scroll-box" class="col-md-12">
+  <table class="table table-hover">
+     <thead>
+      <tr>
+        <th>Profile image</th>
+        <th>Book Cover</th>
+        <th>Date</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Title</th>
+        <th>Opinion</th>
+      </tr>
+    </thead>
+      <tbody>
+       <% @books_scroll.each do |book| %>
+      <tr>
+        <td><%= attachment_image_tag book.user, :profile_image, :fill, 50, 50,  fallback: "default.jpg"%>
+       </td>
+        <td><%= attachment_image_tag book, :image, :fill, 50, 50,  fallback: "default.jpg"%></td>
+        <td><%=book.date %></td>
+        <td>¥<%=book.price %></td>
+        <td><%=book.category %></td>
+        <td><%=book.title %></td>
+        <td><%=book.opinion %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+</div>
+
+<!--モーダルビュー-->
+<div class="modal">
+<div class="pr_box">
+<div class="disclaimer_inner">
+<p class="text-center">【モーダルウィンドウ表示】</p>
+<div class="disclaimer_bt">
+<p class="text-center">
+ <%= link_to "同意します", "/", {:class => "btn btn-primary text-center"} %>
+  &nbsp;&nbsp;
+  <%= link_to "同意しません", 'http://www.google.co.jp/', {:class => "btn btn-danger text-center"} %></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- <script>
+$(function(){
+  var modal = $(".modal");
+  var opacity = 0.6;
+  var button = $(".close_modal");
+  var limit = 120;
+  var cookie = $.cookie("modal");
+  if(cookie === "off"){
+    var overlay = $("<div></div>");
+    overlay.css({
+      "position":"fixed",
+      "z-index":100,
+      "top":0,
+      "left":0,
+      "height":100+"%",
+      "width":100+"%",
+      "background":"#000",
+      "opacity":opacity
+    });
+    $("body").append(overlay);
+    modal.css("display", "block");
+  }
+  button.click(function(){
+    $(overlay).fadeOut("slow");
+    $(modal).hide();
+    var clearTime = new Date();
+    clearTime.setTime(clearTime.getTime()+(limit*60*1000));
+    $.cookie("modal", "off", {expires:clearTime, path:"/"});
+  });
+  $(".remove_cookie").click(function(){
+    $.removeCookie("modal", {expires:-1, path:"/"});
+    location.reload();
+  });
+});
+(function (factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as anonymous module.
+    define(['jquery'], factory);
+  } else {
+    // Browser globals.
+    factory(jQuery);
+  }
+}(function ($) {
+
+  var pluses = /\+/g;
+
+  function raw(s) {
+    return s;
+  }
+
+  function decoded(s) {
+    return decodeURIComponent(s.replace(pluses, ' '));
+  }
+
+  function converted(s) {
+    if (s.indexOf('"') === 0) {
+      // This is a quoted cookie as according to RFC2068, unescape
+      s = s.slice(1, -1).replace(/\\"/g, '"').replace(/\\\\/g, '\\');
+    }
+    try {
+      return config.json ? JSON.parse(s) : s;
+    } catch(er) {}
+  }
+
+  var config = $.cookie = function (key, value, options) {
+
+    // write
+    if (value !== undefined) {
+      options = $.extend({}, config.defaults, options);
+
+      if (typeof options.expires === 'number') {
+        var days = options.expires, t = options.expires = new Date();
+        t.setDate(t.getDate() + days);
+      }
+
+      value = config.json ? JSON.stringify(value) : String(value);
+
+      return (document.cookie = [
+        config.raw ? key : encodeURIComponent(key),
+        '=',
+        config.raw ? value : encodeURIComponent(value),
+        options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+        options.path    ? '; path=' + options.path : '',
+        options.domain  ? '; domain=' + options.domain : '',
+        options.secure  ? '; secure' : ''
+      ].join(''));
+    }
+
+    // read
+    var decode = config.raw ? raw : decoded;
+    var cookies = document.cookie.split('; ');
+    var result = key ? undefined : {};
+    for (var i = 0, l = cookies.length; i < l; i++) {
+      var parts = cookies[i].split('=');
+      var name = decode(parts.shift());
+      var cookie = decode(parts.join('='));
+
+      if (key && key === name) {
+        result = converted(cookie);
+        break;
+      }
+
+      if (!key) {
+        result[name] = converted(cookie);
+      }
+    }
+
+    return result;
+  };
+
+  config.defaults = {};
+
+  $.removeCookie = function (key, options) {
+    if ($.cookie(key) !== undefined) {
+      // Must not alter options, thus extending a fresh object...
+      $.cookie(key, '', $.extend({}, options, { expires: -1 }));
+      return true;
+    }
+    return false;
+  };
+
+}));
+
+
+</script> -->
+
+<%#= javascript_include_tag "jquery.cookie.js" %>
+<%#= javascript_include_tag "jquery.layerBoard.js" %>
