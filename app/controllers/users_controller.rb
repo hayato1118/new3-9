@@ -42,6 +42,6 @@ layout 'not_modal'
 
   private
   def user_params
-    params.require(:user).permit(:name, :profile_image, :introduction, :zip, :state, :mobile, :state, :city, :street)
+    params.require(:user).permit(:name, :profile_image, :introduction, :zip, :state, :mobile, :state, :city, :street, :birth, :sex)
   end
 end
