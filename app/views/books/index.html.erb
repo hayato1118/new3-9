@@ -12,70 +12,43 @@
     <!--部分テンプレートに変数を渡す場合-->
     <!--,locals: { book: @book }-->
     <%= render 'books/list' %>
-      <!--共通項ここまで-->
-      <!--ユーザー一覧-->
-      <div class="col-sm-9">
-        <div class="container">
-          <h2>Books</h2>
-          <!--ransack部分ここから-->
-          <%= search_form_for @q do |f| %>
-            <%= f.label :title_cont %>
-              <%= f.search_field :title_cont %>
-                <%= f.submit %>
-                  <% end %>
-                    <% if params[:q].present? && params[:q][:title_cont].present? %> Search title:
-                      <%= params[:q][:title_cont] %>
-                        <% end %>
-                          <!--ransack部分ここまで-->
-                          <% @books.each do |book| %>
-                            <div class="books-box row col-sm-3">
-                              <table class="table-bordered table table-hover text-left col-sm-3">
-                                <tbody>
-                                  <tr>
-                                    <td>
-                                      <%= attachment_image_tag book, :image, :fill, 100, 100,  fallback: "default.jpg"%>
-                                    </td>
-                                    <td>
-                                      <%=link_to book.title ,book_path(book.id)%>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>Price</td>
-                                    <td>¥
-                                      <%=book.price %>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>Category</td>
-                                    <td>
-                                      <%=book.category %>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>Opinion</td>
-                                    <td>
-                                      <%=book.opinion %>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>投稿日<br>
-                                      <%=book.date%>
-                                    </td>
-                                    <td>
-                                      <%= link_to book.user do %>
-                                        <%= attachment_image_tag book.user, :profile_image, :fill, 50, 50,  fallback: "default.jpg" , class: "img-circle"%><br>
-                                          <%= book.user.name %>
-                                            <% end %>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                            <% end %>
-        </div>
-        <div class="text-center">
-          <%= paginate @books, class: "pagenate" %>
-        </div>
+    <!--共通項ここまで-->
+    <!--ユーザー一覧-->
+    <div class="col-sm-9">
+      <div class="container">
+        <h2>Books</h2><%@books.each do |book| %>
+        <div class="books-box row col-sm-3">
+          <table class="table-bordered table table-hover text-left col-sm-3">
+            <tbody>
+              <tr>
+                <td><%= attachment_image_tag book, :image, :fill, 100, 100,  fallback: "default.jpg"%></td>
+                <td><%=link_to book.title ,book_path(book.id)%></td>
+              </tr>
+              <tr>
+                <td>Price</td>
+                <td>¥ <%=book.price %></td>
+              </tr>
+              <tr>
+                <td>Category</td>
+                <td><%=book.category %></td>
+              </tr>
+              <tr>
+                <td>Opinion</td>
+                <td><%=book.opinion %></td>
+              </tr>
+              <tr>
+                <td>投稿日<br>
+                <%=book.date%></td>
+                <td><%= link_to book.user do %><%= attachment_image_tag book.user, :profile_image, :fill, 50, 50,  fallback: "default.jpg" , class: "img-circle"%><br>
+                <%= book.user.name %> <%end %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div><%end %>
       </div>
+      <div class="text-center">
+        <%= paginate @books, class: "pagenate" %>
+      </div>
+    </div>
   </div>
 </div>

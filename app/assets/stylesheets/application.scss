@@ -440,7 +440,52 @@ color: #f00 ;
     }
 
 }
+/*//ここまでpost_imagesに対してのスタイリングCSS
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+//ここからhomeに対してのスタイリングCSS*/
+.home{
+.faq-list-item {
+  margin:10px;
+  border-bottom:1px solid #ccc;
+  position:relative;
+  cursor:pointer;
+  text-align: left;
+}
+
+.faq-list-item h3 {
+  font-size: 14px;
+}
+
+.faq-list-item span {
+  position:absolute;
+  top:-3px;
+  right:5px;
+  color: #B3B3B3;
+  font-size:16px;
+}
+
+.answer {
+  font-size: 12px;
+  display: none;
+  padding: 5px 0px;
+  margin-bottom: 15px;
+}
+
+
+}
+
+/*//ここまでhomeに対してのスタイリングCSS*/
 
 
 
-/*//ここまでpost_imagesに対してのスタイリングCSS*/
+
+
+
+
+
+
+
+
+

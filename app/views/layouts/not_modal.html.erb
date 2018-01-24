@@ -17,11 +17,8 @@
 <body class='<%= "#{controller.controller_name}" %>'>
   <header class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
-      <nav class="nav navbar-nav navbar-left">
-        <li>
-          <%= link_to "#", :method => :GET do %> <i class="glyphicon glyphicon-book"></i>Bookers
-            <% end %>
-        </li>
+      <nav class="nav navbar-nav navbar-left"> 
+        <span class="glyphicon glyphicon-book">Bookers</span> 
       </nav>
       <nav>
         <ul class="nav navbar-nav navbar-right">
@@ -45,7 +42,6 @@
             </li>
             <% else %>
               <!--ログアウト中のヘッダー-->
-              <li> <button type="button " class="btn btn-link button-link glyphicon glyphicon-user">Signup|Login</button> </li>
               <li>
                 <%= link_to root_path, :method => :GET do %> <i class="glyphicon glyphicon-home"></i> Home
                   <% end %>
@@ -61,6 +57,10 @@
               <li>
                 <%= link_to new_user_session_path, :method => :GET do %> <i class="glyphicon glyphicon-log-in"></i> Login
                   <% end %>
+              </li>
+              <li> 
+                <button type="button " class="btn btn-link button-link glyphicon glyphicon-user">Signup|Login
+                </button>
               </li>
               <% end %>
         </ul>

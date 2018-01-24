@@ -35,9 +35,9 @@
           <div class="col-sm-6"><button type="button" class="close batu" id="modal-close">&times;</button>
             <h3 class="sign_up-h3">新規登録</h3>
             <%= link_to "新規登録", "/users/sign_up", {:class => "btn btn-success btn-sign_up col-sm-12 btn-p"} %>
-              <%= link_to "Facebookで登録", "/", {:class => "btn btn-facebook col-sm-12 btn-p"} %>
-                <%= link_to "Twitterで登録", "/", {:class => "btn btn-twitter col-sm-12 btn-p"} %>
-                  <%= link_to "Googleで登録", "/", {:class => "btn btn-google col-sm-12 btn-p"} %>
+              <%= link_to "Facebookで登録", '#', {:class => "btn btn-facebook col-sm-12 btn-p"} %>
+                <%= link_to "Twitterで登録", '#', {:class => "btn btn-twitter col-sm-12 btn-p"} %>
+                  <%= link_to "Googleで登録", '#', {:class => "btn btn-google col-sm-12 btn-p"} %>
           </div>
         </div>
       </div>
@@ -90,7 +90,7 @@
               <%=book.date %>
             </td>
             <td class="scrolls-box hako text-center">Price </td>
-            <td class="scrolls-box text-center">\
+            <td class="scrolls-box text-center">
               <%=book.price %>
             </td>
             <td class="scrolls-box hako text-center">Category </td>

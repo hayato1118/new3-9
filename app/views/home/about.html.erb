@@ -1,13 +1,44 @@
 <!--アバウトページ-->
 <!--<h1>home#about</h1>
 <p>Find me in app/views/home/about.html.erb</p>-->
-
 <div class="container">
-<p id="notice"></p>
-<div class="row">
-      	<h1>Welcome to <span class="glyphicon glyphicon-book"></span><strong>Bookers</strong>!</h1>
+	<p id="notice"></p>
+	<div class="row">
+		<h1>Welcome to <span class="glyphicon glyphicon-book"></span><strong>Bookers</strong>!</h1>
+	</div>
 
+	<div class="faq-wrapper">
+		<div class="container">
+			<div class="row">
+				<h1>FAQ</h1>
+				<div class="faq col-sm-12">
+					<ul id="faq-list">
+						
+						<li class="faq-list-item">
+							<h2 class="question">Facebook,Twitter,Googleで新規登録できませんがなぜでしょうか？</h2><span>+</span>
+							<div class="answer">
+								<p>まだ実装できていないためトップページに飛んでしまいます。</p>
+							</div>
+						</li>
 
-      </div>
-  </div>
+						<li class="faq-list-item">
+							<h2 class="question">
+							USER DATAページ(users/top/:id)に地図が出ていません</h2><span>+</span>
+							<div class="answer">
+								<p>Google map APIの実装が間に合いませんでした。</p>
+							</div>
+						</li>
+						
+						<li class="faq-list-item">
+							<h2 class="question">USER DATAページ(users/top/:id)のSNSアイコンで個人のページに行けません。</h2><span>+</span>
+							<div class="answer">
+								<p>登録していません。</p>
+							</div>
+						</li>
 
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
