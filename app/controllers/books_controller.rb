@@ -9,8 +9,8 @@ layout 'not_modal'
       #ransack用
     # @search = Book.ransack(params[:q])
     # @products = @search.result
-    @q = Book.ransack(params[:q])
-    @booksss = @q.result(distinct: true)
+    # @q = Book.ransack(params[:q])
+    # @booksss = @q.result(distinct: true)
   end
 
   def show
