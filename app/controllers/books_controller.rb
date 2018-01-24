@@ -1,14 +1,19 @@
 class BooksController < ApplicationController
 before_action :authenticate_user!
+layout 'not_modal'
   def index
       @books = Book.all
       @books = Book.page(params[:page]).reverse_order
       # binding.pry
       @book = Book.new
+      #ransack用
+    # @search = Book.ransack(params[:q])
+    # @products = @search.result
+    @q = Book.ransack(params[:q])
+    @booksss = @q.result(distinct: true)
   end
 
   def show
-      # @bookf = Book.find(params[:id])
       @book = Book.new
       #コメント投稿用
       @bookc = Book.find(params[:id])

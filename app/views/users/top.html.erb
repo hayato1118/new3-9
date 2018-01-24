@@ -1,0 +1,119 @@
+<!--Usersのユーザー登録情報ページ
+Find me in app/views/users/top.html.erb
+全共通コード(heade)(footer)app/views/layouts/application.html.erb-->
+<p id="notice">
+</p>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2">
+			<h1>USER DATA
+			</h1>
+			<div class="user-date2">
+				<div class="user-image text-center">
+					<%= attachment_image_tag @user, :profile_image, :fill, 250, 250,  fallback: "no_image_top.jpg",class: "img-circle img-thumbnail img-responsive center-block" %>
+					<h1>
+						<%= @user.name %>
+					</h1>
+				</div>
+
+
+				<div class="user-blocks text-center">
+
+					<div class="container-icon">
+					<%= link_to 'https://www.facebook.com/' do %>
+					<i class="facebook fa fa-facebook-square target"
+						style="font-size:100px">
+					</i>
+					<% end %>
+				</div>&emsp;&emsp;&emsp; 
+
+					<div class="container-icon">
+					<%= link_to 'https://twitter.com/' do %>
+					<i class="twitter fa fa-twitter-square target"
+						style="font-size:100px">
+					</i>
+					<% end %>
+				</div>&emsp;&emsp;&emsp; 
+
+					<div class="container-icon">
+					<%= link_to 'https://www.instagram.com/', class: "insta_btn" do %>
+					<span class="insta target">
+						<i class="instagram fa fa-instagram target"
+							style="font-size:100px">
+						</i>
+					</span>
+					<% end %>
+					</div>
+
+
+					<table>
+						<tbody class="row">
+							<div class="col-sm-10 col-sm-offset-1">
+								<tr>
+									<td colspan="2">
+										<%= link_to user_path(@user.id) do %>
+										<i class="btn btn-default  glyphicon glyphicon-book col-sm-10 col-sm-offset-1">
+											<h2>
+												<strong>投稿BOOK一覧
+												</strong>
+											</h2>
+										</i>
+										<% end %>
+									</td>
+								</tr>
+								<tr class="col-sm-10 col-sm-offset-1 user-border">
+									<td>ユーザーネーム：
+									</td>
+									<td>
+										<%= @user.name %>
+									</td>
+								</tr>
+								<tr class="col-sm-10 col-sm-offset-1 user-border">
+									<td>生年月日：
+									</td>
+									<td>
+										<%= @user.birth %>
+									</td>
+								</tr>
+								<tr class="col-sm-10 col-sm-offset-1 user-border">
+									<td>電話番号：
+									</td>
+									<td>
+										<%= @user.mobile %>
+									</td>
+								</tr>
+								<tr class="col-sm-10 col-sm-offset-1 user-border">
+									<td>メールアドレス：
+									</td>
+									<td>
+										<%= @user.email %>
+									</td>
+								</tr>
+								<tr class="col-sm-10 col-sm-offset-1 user-border">
+									<td>郵便番号：
+									</td>
+									<td>
+										<%= @user.zip %>
+									</td>
+								</tr>
+								<tr class="col-sm-10 col-sm-offset-1 user-border">
+									<td>住所：
+									</td>
+									<td>
+										<%= @user.state %>
+										<%= @user.city %>
+										<%= @user.street %>
+									</td>
+								</tr>
+								<tr class="col-sm-10 col-sm-offset-1 user-border">
+									<td colspan="2">地図画像
+									</td>
+								</tr>
+							</div>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,5 +1,7 @@
 class Book < ApplicationRecord
 
+#投稿日が空欄の場合はエラーメッセージを表示する
+validates :date, presence: true
 #投稿時のタイトル必須
 validates :title, presence: true
 #投稿時の本文必須

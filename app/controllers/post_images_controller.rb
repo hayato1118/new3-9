@@ -1,4 +1,5 @@
 class PostImagesController < ApplicationController
+  include ActionController::Helpers
 
   def index
     # render レイアウトファイル

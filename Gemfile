@@ -11,6 +11,12 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'kaminari'
 gem "ransack"
+# gem 'momentjs-rails'
+# gem 'bootstrap3-datetimepicker-rails'
+# gem 'omniauth-twitter'
+# gem 'omniauth-facebook'
+# gem 'omniauth'
+# gem 'omniauth-google-oauth2'
 # gem 'execjs'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'

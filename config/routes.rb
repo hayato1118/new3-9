@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :projects
 devise_for :users
+get 'users/top/:id' => 'users#top', as: 'user_infomation'
+resources :projects
 resources :users
 resources :users, only: [:show]
 resources :books

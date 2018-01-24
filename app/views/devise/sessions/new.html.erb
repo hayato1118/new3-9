@@ -3,7 +3,7 @@
 <p>Find me in app/views/devise/sessioms/new.html.erb</p>-->
 
 <!--ログインページ-->
-<div class="body">
+
 <div class="container">
 <p id="notice"></p>
 <div class="row">
@@ -27,8 +27,9 @@
           <%= f.submit "Log in", class:"btn btn btn-primary" %>
         </div>
         <% end %>
+        <%= render "devise/shared/links" %>
+
 </div>
 </div>
-</div>
-<%= render "devise/shared/links" %>
+
 

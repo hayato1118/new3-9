@@ -1,14 +1,18 @@
 window.onload = function () {
   autoScroll();
 }
-var $scrollY = -50;
+
+// .scrollX 水平方向にスクロールされているピクセルを変えす
+var $scrollX = -10;
 function autoScroll() {
   var $scroller = document.getElementById("scroll-box");
-  $scroller.scrollTop = ++$scrollY;
-  if( $scrollY < $scroller.scrollHeight - $scroller.clientHeight ){
-    setTimeout( "autoScroll()", 40 );
+  $scroller.scrollLeft = ++$scrollX;
+  // scrollWidth paddingを含んだ画面上に表示されていないコンテンツを含む幅
+  // clientWidth paddingを含んだ幅
+  if( $scrollX < $scroller.scrollWidth - $scroller.clientWidth ){
+    setTimeout( "autoScroll()", 6 );
     }else{
-      $scrollY = 0;
-      $scroller.scrollTop = 0;
-      setTimeout( "autoScroll()", 40 );
+      $scrollX = 0;
+      $scroller.scrollLeft = 0;
+      setTimeout( "autoScroll()", 6 );
 }}

@@ -1,3 +1,5 @@
- // $(function() {
- //    $("#datepicker").datepicker();
- // });
+<script>
+  $(function() {
+    $("#datepicker").datepicker();
+  });
+</script>
