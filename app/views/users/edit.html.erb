@@ -3,7 +3,6 @@
 <p>Find me in app/views/users/edit.html.erb</p>
 <p>全共通コード(heade)(footer)app/views/layouts/application.html.erb</p>
 <p>部分共通コード(left_side)/app/views/books/_list.html.erb</p>-->
-
 <!--住所の補助入力ここから-->
 <script>
 $(function () {
@@ -20,7 +19,6 @@ $(function () {
 });
 </script>
 <!--住所の補助入力ここから-->
-
 <!--カレンダー表示ここから-->
 <script>
   $(function() {
@@ -28,75 +26,84 @@ $(function () {
   });
 </script>
 <!--カレンダー表示ここまで-->
-
 <div class="container">
-  <p id="notice"></p>
-  <div class="row">
-    <%= form_for(@user) do |f| %>
-      <% if @user.errors.any? %>
-        <div id="error_explanation" class="alert alert-danger">
-          <ul>
-            <% @user.errors.full_messages.each do |message| %>
-              <li>
-                <%= message %>
-              </li>
-              <% end %>
-          </ul>
-        </div>
-        <% end %>
-
-            <h2>User info</h2>
-            <div class="field  col-sm-12" style="display:inline-flex"><P><label>Name</label>
-                <%= f.text_field :name ,class: "col-sm-12"%>
-              </div>
-            </p>
-             <div class="field col-sm-12" style="display:inline-flex"><P><label>郵便番号</label>
-             <%= f.text_field :zip, id: "zip" ,class: "col-sm-12" %>
-            </div>
-
-            <div class="field col-sm-12" style="display:inline-flex"><P><label>都道府県</label>
-               <%= f.text_field :state, id: "address" ,class: "col-sm-12"%>
-             </div>
-
-               <div class="field col-sm-12" style="display:inline-flex"><P><label>市区町村</label>
-               <%= f.text_field :city, id: "address2" ,class: "col-sm-12"%>
-             </div>
-
-               <div class="field col-sm-12" style="display:inline-flex"><P><label>町名以降</label>
-               <%= f.text_field :street, id: "address3" ,class: "col-sm-12"%>
-             </div>
-
-            <div class="field col-sm-12" style="display:inline-flex"><P><label>電話番号</label>
-              <%= f.number_field :mobile ,class: "col-sm-12"%>
-            </div>
-            <div class="field col-sm-12" style="display:inline-flex"><P><label>E-Mail</label>
-              <%= f.text_field :email ,class: "col-sm-12"%>
-            </div>
-
-            <div class="field col-sm-12" style="display:inline-flex"><P><label>生年月日</label>
-             <%= f.text_field :birth, id: "datepicker" ,class: "col-sm-12" %>
-            </div>
-           <div class="field col-sm-12" style="display:inline-flex"><P><label>性別</label>
-              <%= f.select :sex, [["男","男"],["女","女"],], class: "col-sm-12"%>
-            </div>
-            <div class="field col-sm-12" style="display:inline-flex"><P><label>introduction</label>
-              <%= f.text_area :introduction ,class: "col-sm-12"%>
-            </div>
-            </p>
-            <div class="field col-sm-12" style="display:inline-flex"><P><label>プロフィール画像</label>
-              <%= f.attachment_field :profile_image ,class: "col-sm-12"%>
-            </div>
-
-             <div class="field col-sm-12" style="display:inline-flex">
-            <%= f.submit 'Update User' ,class: "col-sm-3 btn btn-primary" %>
-          </div>
-              <% end %>
-          </div>
-    </div>
+<p id="notice">
+</p>
+<div class="row">
+<%= form_for(@user) do |f| %>
+<% if @user.errors.any? %>
+<div id="error_explanation" class="alert alert-danger">
+<ul>
+  <% @user.errors.full_messages.each do |message| %>
+  <li>
+    <%= message %>
+  </li>
+  <% end %>
+</ul>
 </div>
-
-
-
-
-
-
+<% end %>
+<h2>User info</h2>
+<div class="field  col-sm-12" style="display:inline-flex">
+<P>
+<label>Name</label>
+<%= f.text_field :name ,class: "col-sm-12"%>
+</div>
+</p>
+<div class="field col-sm-12" style="display:inline-flex">
+<P>
+<label>郵便番号</label>
+<%= f.text_field :zip, id: "zip" ,class: "col-sm-12" %>
+</div>
+<div class="field col-sm-12" style="display:inline-flex">
+<P>
+<label>都道府県</label>
+<%= f.text_field :state, id: "address" ,class: "col-sm-12"%>
+</div>
+<div class="field col-sm-12" style="display:inline-flex">
+<P>
+<label>市区町村</label>
+<%= f.text_field :city, id: "address2" ,class: "col-sm-12"%>
+</div>
+<div class="field col-sm-12" style="display:inline-flex">
+<P>
+<label>町名以降</label>
+<%= f.text_field :street, id: "address3" ,class: "col-sm-12"%>
+</div>
+<div class="field col-sm-12" style="display:inline-flex">
+<P>
+<label>電話番号</label>
+<%= f.number_field :mobile ,class: "col-sm-12"%>
+</div>
+<div class="field col-sm-12" style="display:inline-flex">
+<P>
+<label>E-Mail</label>
+<%= f.email_field :email ,class: "col-sm-12"%>
+</div>
+<div class="field col-sm-12" style="display:inline-flex">
+<P>
+<label>生年月日</label>
+<%= f.text_field :birth, id: "datepicker" ,class: "col-sm-12" %>
+</div>
+<div class="field col-sm-12" style="display:inline-flex">
+<P>
+<label>性別</label>
+<%= f.select :sex, [["男","男"],["女","女"],], class: "col-sm-12"%>
+</div>
+<div class="field col-sm-12" style="display:inline-flex">
+<P>
+<label>introduction</label>
+<%= f.text_area :introduction ,class: "col-sm-12"%>
+</div>
+</p>
+<div class="field col-sm-12" style="display:inline-flex">
+<P>
+<label>プロフィール画像</label>
+<%= f.attachment_field :profile_image ,class: "col-sm-12"%>
+</div>
+<div class="field col-sm-12" style="display:inline-flex">
+<%= f.submit 'Update User' ,class: "col-sm-3 btn btn-primary" %>
+</div>
+<% end %>
+</div>
+</div>
+</div>

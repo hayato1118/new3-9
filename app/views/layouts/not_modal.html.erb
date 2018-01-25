@@ -1,73 +1,83 @@
 <!--共通のコード-->
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Bookers</title>
-  <meta charset="utf-8">
-  <%= csrf_meta_tags %>
+  <head>
+    <title>Bookers</title>
+    <meta charset="utf-8">
+    <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-        <!--font type-->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-         crossorigin="anonymous">
-        <!--カレンダー-->
-        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
-        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css"> </head>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--font type-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!--カレンダー-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css">
+  </head>
 <body class='<%= "#{controller.controller_name}" %>'>
-  <header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container">
-      <nav class="nav navbar-nav navbar-left"> 
-        <span class="glyphicon glyphicon-book">Bookers</span> 
-      </nav>
-      <nav>
-        <ul class="nav navbar-nav navbar-right">
-          <% if user_signed_in? %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <nav class="nav navbar-nav navbar-left">
+          <span class="glyphicon glyphicon-book">Bookers</span>
+        </nav>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
             <!--ログイン中のヘッダー-->
             <li>
-              <%= link_to user_path(current_user.id), :method => :GET do %> <i class="glyphicon glyphicon-home"></i> Home
-                <% end %>
-                  <!--<a class="glyphicon glyphicon-home" href="/users"> Home</a>--></li>
+              <%= link_to user_path(current_user.id), :method => :GET do %>
+              <i class="glyphicon glyphicon-home"></i>Home
+              <% end %>
+              <!--<a class="glyphicon glyphicon-home" href="/users"> Home</a>-->
+            </li>
             <li>
-              <%= link_to users_path, :method => :GET do %> <i class="glyphicon glyphicon-user"></i> Users
-                <% end %>
-                  <!--<a class="glyphicon glyphicon-user" href="/users"> Users</a>--></li>
+              <%= link_to users_path, :method => :GET do %>
+              <i class="glyphicon glyphicon-user"></i>Users
+              <% end %>
+              <!--<a class="glyphicon glyphicon-user" href="/users"> Users</a>-->
+            </li>
             <li>
-              <%= link_to books_path, :method => :GET do %> <i class="glyphicon glyphicon-book"></i> Books
-                <% end %>
-                  <!--<a class="glyphicon glyphicon-book" href="/books"> Books</a>--></li>
+              <%= link_to books_path, :method => :GET do %>
+              <i class="glyphicon glyphicon-book"></i>Books
+              <% end %>
+              <!--<a class="glyphicon glyphicon-book" href="/books"> Books</a>-->
+            </li>
             <li>
-              <%= link_to destroy_user_session_path, :method => :delete do %> <i class="glyphicon glyphicon-log-out"></i> Logout
-                <% end %>
+              <%= link_to destroy_user_session_path, :method => :delete do %>
+              <i class="glyphicon glyphicon-log-out"></i>Logout
+              <% end %>
             </li>
             <% else %>
-              <!--ログアウト中のヘッダー-->
-              <li>
-                <%= link_to root_path, :method => :GET do %> <i class="glyphicon glyphicon-home"></i> Home
-                  <% end %>
-              </li>
-              <li>
-                <%= link_to home_about_path, :method => :GET do %> <i class="glyphicon glyphicon-link"></i> About
-                  <% end %>
-              </li>
-              <li>
-                <%= link_to new_user_registration_path, :method => :GET do %> <i class="glyphicon glyphicon-edit"></i> Sign up
-                  <% end %>
-              </li>
-              <li>
-                <%= link_to new_user_session_path, :method => :GET do %> <i class="glyphicon glyphicon-log-in"></i> Login
-                  <% end %>
-              </li>
-              <li> 
-                <button type="button " class="btn btn-link button-link glyphicon glyphicon-user">Signup|Login
-                </button>
-              </li>
+            <!--ログアウト中のヘッダー-->
+            <li>
+              <%= link_to root_path, :method => :GET do %>
+              <i class="glyphicon glyphicon-home"></i>Home
               <% end %>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <%= yield %>
+            </li>
+            <li>
+              <%= link_to home_about_path, :method => :GET do %>
+              <i class="glyphicon glyphicon-link"></i>About
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_registration_path, :method => :GET do %>
+              <i class="glyphicon glyphicon-edit"></i>Sign up
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_session_path, :method => :GET do %>
+              <i class="glyphicon glyphicon-log-in"></i>Login
+              <% end %>
+            </li>
+            <li>
+              <button type="button " class="btn btn-link button-link glyphicon glyphicon-user">Signup|Login </button>
+            </li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <%= yield %>
     <footer>
       <div class="container">
         <div class="row">
@@ -77,5 +87,5 @@
         </div>
       </div>
     </footer>
-</body>
+  </body>
 </html>

@@ -7,10 +7,8 @@ layout 'not_modal'
       # binding.pry
       @book = Book.new
       #ransack用
-    # @search = Book.ransack(params[:q])
-    # @products = @search.result
-    # @q = Book.ransack(params[:q])
-    # @booksss = @q.result(distinct: true)
+      @q = Book.ransack(params[:q])
+      @books = @q.result.page(params[:page])
   end
 
   def show
