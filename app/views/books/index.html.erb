@@ -7,23 +7,23 @@
 <div class="container">
   <p id="notice"></p>
   <div class="row">
-    <!-- <div class="navbar navbar-static-top navbar-right"> -->
+    <div class="navbar navbar-static-top navbar-right">
       <!-- navbar-brand -->
-      <!-- < link_to 'Book検索', books_path, class: 'navbar-brand' > -->
+      <%= link_to 'Book検索', books_path, class: 'navbar-brand' %>
       <!-- navbar-form  フォーム（form要素）を配置すること-->
       <!-- navbar-left メニュー項目、フォーム、テキストなどは、左寄せにする-->
-      <!-- < search_form_for @q, html: { class: 'navbar-form navbar-left' } do |f|> -->
+      <%= search_form_for @q, html: { class: 'navbar-form navbar-left' } do |form| %>
       <!--Bootstrapでのformの作る時 form-group  text系はlabelと一緒に<div class="form-group">で囲む-->
-      <!-- <div class="form-group"> -->
+      <div class="form-group">
         <!--ootstrapでのformの作る時 form-control text系はclass="form-control"を定義-->
-        <!-- < f.search_field :title_or_price_eq, class: 'form-control', placeholder: 'Title_or_Price(完全一致)' > -->
-      <!-- </div> -->
-      <!-- < f.submit class: 'btn btn-default' %>並べ替え： -->
-      <!-- < sort_link(@q, :title, 'タイトル', default_order: :desc ,class: "navbar-brand") %> -->
-      <!-- < sort_link(@q, :category, 'カテゴリー', default_order: :desc ,class: "navbar-brand") %> -->
-      <!-- < sort_link(@q, :price, '値段', default_order: :desc ,class: "navbar-brand") %> -->
-      <!-- < end > -->
-    <!-- </div> -->
+        <%= form.search_field :title_or_price_eq, class: 'form-control', placeholder: 'Title_or_Price(完全一致)' %>
+      </div>
+      <%= form.submit class: 'btn btn-default' %>並べ替え：
+      <%= sort_link(@q, :title, 'タイトル', default_order: :desc ,class: "navbar-brand") %>
+      <%= sort_link(@q, :category, 'カテゴリー', default_order: :desc ,class: "navbar-brand") %>
+      <%= sort_link(@q, :price, '値段', default_order: :desc ,class: "navbar-brand") %>
+      <% end %>
+    </div>
     <!--共通項ここから-->
     <!--ユーザ画面-->
     <!--部分テンプレートに変数を渡す場合-->

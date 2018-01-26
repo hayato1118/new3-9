@@ -32,6 +32,7 @@ layout 'not_modal'
         redirect_to book_path(@book.id)
       else
         @books = Book.page(params[:page]).reverse_order
+        @q = Book.ransack(params[:q])
         render :index
       end
   end
