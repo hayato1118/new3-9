@@ -19,7 +19,8 @@ layout 'not_modal'
   end
 
   def top
-  	  @user = User.find(params[:id])
+      @user = User.find(params[:id])
+
   end
 
   def new
@@ -42,6 +43,6 @@ layout 'not_modal'
 
   private
   def user_params
-    params.require(:user).permit(:name, :profile_image, :introduction, :zip, :state, :mobile, :state, :city, :street, :birth, :sex)
+    params.require(:user).permit(:name, :profile_image, :introduction, :zip, :mobile, :state, :city, :street, :birth, :sex, :image_id)
   end
 end

@@ -16,6 +16,10 @@ validates :image, presence: true
 attachment :image
 #Userと紐ずけ(N)
 belongs_to :user
+has_one :stock
+
+has_many :book_carts, :dependent => :destroy
+has_many :book_orders
 has_many :post_comments, dependent: :destroy
 
 end

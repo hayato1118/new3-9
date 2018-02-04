@@ -1,0 +1,55 @@
+<!-- <h1>Carts#show</h1>
+<p>Find me in app/views/carts/show.html.erb</p>
+ -->
+
+<div class="container">
+	<div class="row">
+		<div class="col-ms-12" style="background-color: #FFF;">
+		  <p id="notice"></p>
+		  <h1>カート</h1>
+			<table class="table table-hover">
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><label>価格</label></td>
+						<td><label>数量</label></td>
+					</tr>
+					<% current_user.cart.book_carts.each do |book_cart| %>
+					<tr>
+						<td rowspan="3"><%= attachment_image_tag book_cart.book, :image, :fill, 100, 100,  fallback: "default.jpg"%></td>
+						<td colspan="2"><label>タイトル</label></td>
+						<td colspan="2"><%= book_cart.book.title %></td>
+						<td rowspan="2">¥<%= book_cart.book.price %></td>
+						<td rowspan="2"><%= book_cart.book.quantity %>個</td>
+					</tr>
+					<tr>
+						<td colspan="2"><label>出品者</label></td>
+						<td colspan="2"><%= book_cart.book.user.name %></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td><%= link_to "Destroy", book_book_carts_path(book_cart.book_id, book_cart.id), method: :delete, class: "btn-sm btn-danger", data: { confirm: '本当に消しますか?'} %></td>
+						<td><%=link_to "詳細", book_path(book_cart.book.id), class: "btn-sm btn-info"%></td>
+						<td></td>
+						<td></td>
+					</tr>
+
+					<% end %>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><label>合計金額</label> <%= @total_price %></td>
+						<td><%=link_to "戻る", books_path %></td>
+						<td><%=link_to "購入", new_order_path %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>

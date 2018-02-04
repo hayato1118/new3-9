@@ -34,7 +34,7 @@
     <div class="col-sm-9">
       <div class="container">
         <h2>Books</h2>
-        <%@books.each do |book| %>
+        <% @books.each do |book| %>
         <div class="books-box row col-sm-3">
           <table class="table-bordered table table-hover text-left col-sm-3">
             <tbody>
@@ -43,27 +43,40 @@
                   <%= attachment_image_tag book, :image, :fill, 100, 100,  fallback: "default.jpg"%>
                 </td>
                 <td>
-                  <%=link_to book.title ,book_path(book.id)%>
+                  <%= link_to book.title ,book_path(book.id)%><br>
+
+                 <%= link_to "購入", book_book_carts_path(book.id),method: :post, class: "btn btn-danger" %>
                 </td>
               </tr>
+
               <tr>
                 <td>Price</td>
                 <td>¥
                   <%=book.price %>
                 </td>
               </tr>
+
               <tr>
                 <td>Category</td>
                 <td>
                   <%=book.category %>
                 </td>
               </tr>
+
               <tr>
                 <td>Opinion</td>
                 <td>
                   <%=book.opinion %>
                 </td>
               </tr>
+
+              <tr>
+                <td>在庫数</td>
+                <td>
+                  <%=book.quantity %>
+                </td>
+              </tr>
+
               <tr>
                 <td>投稿日 
                   <br>
@@ -77,6 +90,7 @@
                   <% end %>
                 </td>
               </tr>
+
             </tbody>
           </table>
         </div>

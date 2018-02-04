@@ -9,8 +9,8 @@ attachment :profile_image
 #bookと紐ずけ(1)
 has_many :books
 has_many :post_comments, dependent: :destroy
-
-
+has_one :cart
+has_many :orders
 #ユーザー名は2~20文字とする
 validates :name, length: { minimum: 2 }
 validates :name, length: { maximum: 20 }

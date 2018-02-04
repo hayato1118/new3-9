@@ -351,6 +351,19 @@ color: #f00 ;
     }
 
 
+/*google map api 部分*/
+#map-canvas {
+    height: 400px;
+    margin-left:auto;    /* 左側マージンを自動的に空ける */
+    margin-right:auto;   /* 右側マージンを自動的に空ける */
+    text-align:left;     /* 中身を左側表示に戻す */
+    width: 80%;
+    }
+
+    
+    .cart_td{
+        padding-left:100px;
+    }
 }
 
 
@@ -525,10 +538,22 @@ path{
 
 }
 
-/*//ここまでhomeに対してのスタイリングCSS*/
+/*//ここまでhomeに対してのスタイリングCSS
 
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
+//ここからcartに対してのスタイリングCSS*/
 
+.carts{
+    td{
+        padding-right: 150px;
+        white-space: nowrap;
+    }
+
+    .btn-sm{
+        color:#FFF;
+    }
+}
 
 
 

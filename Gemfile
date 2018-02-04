@@ -11,6 +11,7 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'kaminari'
 gem "ransack"
+gem 'payjp'
 # gem 'momentjs-rails'
 # gem 'bootstrap3-datetimepicker-rails'
 # gem 'omniauth-twitter'

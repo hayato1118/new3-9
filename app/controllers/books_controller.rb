@@ -57,6 +57,6 @@ layout 'not_modal'
 
   private
   def book_params
-    params.require(:book).permit(:title, :opinion, :user_id, :category, :date, :image, :price)
+    params.require(:book).permit(:title, :opinion, :user_id, :category, :date, :image, :price, :quantity)
   end
 end

@@ -81,6 +81,10 @@
           <label>Opinion</label>
           <%= f.text_area :opinion, class: " col-sm-12" %>
         </div>
+        <div class="field row">
+          <label>個数</label>
+          <%= f.number_field :quantity, min: 0,class: "col-sm-12"%>
+        </div>
         <div class="actions row">
           <%= f.submit "Create Book", class:"btn btn btn-primary col-sm-12" %>
         </div>

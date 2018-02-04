@@ -1,0 +1,66 @@
+<!-- <h1>Orders#new</h1>
+<p>Find me in app/views/orders/new.html.erb</p>
+ -->
+
+<div class="container">
+	<div class="row">
+		<div class="col-ms-12" style="background-color: orange;">
+		<p id="notice"></p>
+		<h1>購入確認画面</h1>
+		 <%= form_for @order do |f| %>
+			<table>
+				<tbody>
+					<tr>
+						<td>名前：</td>
+						<td><%= f.text_field :name, :value => current_user.name %></td>
+					</tr>
+					<tr>
+						<td>郵便番号：</td>
+						<td><%= f.text_field :zip, :value => current_user.zip %></td>
+					</tr>
+					<tr>
+						<td>都道府県：</td>
+						<td><%= f.text_field :state, :value => current_user.state %></td>
+					</tr>
+					<tr>
+						<td>市町村：</td>
+						<td><%= f.text_field :city, :value => current_user.city %></td>
+					</tr>
+					<tr>
+						<td>町名以下：</td>
+						<td><%= f.text_field :street, :value => current_user.street %></td>
+					</tr>
+					<tr>
+						<td>電話番号：</td>
+						<td><%= f.text_field :mobile, :value => current_user.mobile %></td>
+					</tr>
+					<tr>
+						<td>メールアドレス：</td>
+						<td><%= f.text_field :email, :value => current_user.email %></td>
+					</tr>
+					<tr>
+						<td>合計：</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>配送方法：</td>
+						<td><%= f.select :shipping_method, [["手渡し", 0],["船", 1]] %></td>
+					</tr>
+					<tr>
+						<td>送料：</td>
+						<td><%= f.select :freight, [[1000, 1000]] %></td>
+					</tr>
+					<tr>
+						<td>合計：</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>戻るボタン</td>
+						<td><%= f.submit "購入" %></td>
+						<% end %>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>	

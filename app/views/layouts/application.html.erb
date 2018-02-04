@@ -17,11 +17,15 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!--カレンダー-->
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js">
-        </script>
+    </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js">
-        </script>
+    </script>
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css" rel="stylesheet">
   </head>
+
+
+
+
 <body class='<%= "#{controller.controller_name}" %>'>
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
@@ -50,11 +54,19 @@
               <% end %>
               <!--<a class="glyphicon glyphicon-book" href="/books"> Books</a>-->
             </li>
+              <li>
+              <%= link_to cart_path(current_user.cart.id),:method => :GET do %>
+              <i class="glyphicon glyphicon-shopping-cart"></i>Cart
+              <% end %>
+            </li>
+
             <li>
               <%= link_to destroy_user_session_path, :method => :delete do %>
               <i class="glyphicon glyphicon-log-out"></i>Logout
               <% end %>
             </li>
+
+
             <% else %>
             <!--ログアウト中のヘッダー-->
             <li>

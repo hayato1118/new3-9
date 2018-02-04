@@ -6,13 +6,14 @@
     <meta charset="utf-8">
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
     <!--font type-->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!--カレンダー-->
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css">
+
   </head>
 <body class='<%= "#{controller.controller_name}" %>'>
     <header class="navbar navbar-fixed-top navbar-inverse">
@@ -41,6 +42,11 @@
               <i class="glyphicon glyphicon-book"></i>Books
               <% end %>
               <!--<a class="glyphicon glyphicon-book" href="/books"> Books</a>-->
+            </li>
+               <li>
+              <%= link_to cart_path(current_user.cart.id), :method => :GET do %>
+              <i class="glyphicon glyphicon-shopping-cart"></i>Cart
+              <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, :method => :delete do %>
